@@ -11,6 +11,7 @@
 
 .sidebarrow__title {
     flex: 1;
+    color: #606060;
     margin-left: 20px;
     font-size: 12px;
     font-weight: 500;
@@ -30,13 +31,5 @@
 }
 
 .sidebarrow.selected {
-    background-color: lightgray;
-}
-
-.sidebarrow.selected>.sidebarrow__icon {
-    color: red
-}
-
-.sidebarrow.selected>.sidebarrow__title {
-    font-weight: bold;
+    background-color: #64CCDA;
 }

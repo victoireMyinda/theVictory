@@ -18,9 +18,10 @@ const RecommendedVideos = () => {
   const [isError, setIsError] = useState(false);
   const user = localStorage.getItem("token");
 
+
   useEffect(() => {
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/subscriptions?key=AIzaSyBECTQ9-UglEFWRsemrTyGIsqHUoAqmd8c&mine=true&part=snippet`,
+      `https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet%2CcontentDetails&maxResults=50&mine=true&key=AIzaSyBECTQ9-UglEFWRsemrTyGIsqHUoAqmd8c`,
       {
         method: "GET",
         headers: new Headers({ Authorization: `Bearer ${user}` }),

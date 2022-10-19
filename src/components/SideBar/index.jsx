@@ -9,13 +9,23 @@ import HistoryIcon from "@material-ui/icons/History";
 import OndemandVideoIcon from "@material-ui/icons/OndemandVideo";
 import WatchLaterIcon from "@material-ui/icons/WatchLater";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
   return (
     <div className="sidebar">
-      <SideBarRow Icon={HomeIcon} title="Home" />
+
+
+      <Link to='/home'>
+        <SideBarRow Icon={HomeIcon} title="Home" />
+      </Link>
+
       <SideBarRow Icon={WhatshotIcon} title="Trending" />
-      <SideBarRow Icon={SubscriptionsIcon} title="Subscription" />
+
+      <Link to='/userAuth'>
+        <SideBarRow Icon={SubscriptionsIcon} title="Subscription" />
+      </Link>
+
       <hr />
       <SideBarRow Icon={VideoLibraryIcon} title="Library" />
       <SideBarRow Icon={HistoryIcon} title="History" />

@@ -8,6 +8,9 @@ import VideoPlayer from "./components/VideoPLayer";
 import GoogleLogin from "./components/GoogleLogin";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage"
+
+import "./App.css"
 
 const App = () => {
   return (
@@ -83,6 +86,25 @@ const App = () => {
           }
         />
 
+
+        <Route
+          exact
+          path="/home"
+          element={
+            <div className="app__mainpage container-fluid">
+              <Header />
+              <div className="row">
+                <div className="col-2">
+                  <SideBar />
+                </div>
+                <div className="col-10">
+                  < HomePage />
+                </div>
+              </div>
+            </div>
+          }
+        />
+
         <Route
           exact
           path="/"
@@ -97,11 +119,16 @@ const App = () => {
           }
         />
 
-        {/* <Route path="*">
-          <div>
-            <ErrorPage />
-          </div>
-        </Route> */}
+
+
+
+
+
+
+
+
+
+
       </Routes>
     </div>
   );

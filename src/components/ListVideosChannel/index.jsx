@@ -15,17 +15,17 @@ const ListVideosChannel = () => {
   const [videoCards, setVideoCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const {channelId} = useParams()
- 
+  const { channelId } = useParams()
+
   useEffect(() => {
     fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&maxResults=21&key=AIzaSyBECTQ9-UglEFWRsemrTyGIsqHUoAqmd8c`)
-    .then((response) => response.json())
-    .then((data) => {
-      setVideoCards(data.items)
-      //console.log(data.items);
-     // createVideoCards(data.items);
-    })
-    .catch(() => setIsError(true));
+      .then((response) => response.json())
+      .then((data) => {
+        setVideoCards(data.items)
+        //console.log(data.items);
+        // createVideoCards(data.items);
+      })
+      .catch(() => setIsError(true));
   }, []);
 
   if (isError) {
@@ -43,17 +43,12 @@ const ListVideosChannel = () => {
         </div>
       ) : null}
       <div className="recommendedvideos__videos">
-        {videoCards.map((video,index) => {
+        {videoCards.map((video, index) => {
           return (
             <Link key={index} to={`/video/${video.id.videoId}`}>
               <VideoCard
                 title={video.snippet.title}
                 image={video.snippet.thumbnails.medium.url}
-                views={"0"}
-                timestamp={"0"}
-                channel={""}
-                channelImage={""}
-                
               />
             </Link>
           );

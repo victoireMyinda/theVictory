@@ -35,7 +35,7 @@ const Header = (props) => {
   };
 
   return (
-    <div className="header container-fluid navbar">
+    <div className="header container-fluid navbar navbar-expand-lg ">
       <div className="header__left">
         <MenuIcon />
         <Link to="/" className="text-decoration-none">
@@ -69,7 +69,7 @@ const Header = (props) => {
       <div className="header__right">
         <Avatar alt="Nouman Ahmed" src={userConnected} />
 
-        <button className="btn btn-danger" onClick={signOut}>
+        <button className="btn btn-danger " onClick={signOut}>
           Deconnexion
         </button>
       </div>

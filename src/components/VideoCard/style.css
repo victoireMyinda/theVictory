@@ -32,7 +32,7 @@
 
 .videocard__text>p {
     font-size: 14px;
-    color: gray;
+    color: gray !important;
 }
 
 .videocard__avatar {
