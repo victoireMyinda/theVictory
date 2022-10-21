@@ -1,13 +1,13 @@
 import React from "react";
 import "./style.css";
 
-const SideBarRow = ({ selected, Icon, title }) => {
+const SideBarRow = ({ Icon, title }) => {
   return (
-    <div className={`sidebarrow${selected ? "selected" : ""}`}>
-      <Icon className="sidebarrow__icon" />
-      <h2 className="sidebarrow__title">{title}</h2>
+    <div className="sidebarrow">
+      <Icon className='sidebarrow__icon' />
+      <h2 className='sidebarrow__title'>{title}</h2>
     </div>
-  );
-};
+  )
+}
 
 export default SideBarRow;

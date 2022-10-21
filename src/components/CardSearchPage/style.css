@@ -12,9 +12,8 @@
 }
 
 .videorow>img {
-    object-fit: contain;
-    width: 246px;
-    height: 138px;
+    width: 300px;
+    height: 200px;
 }
 
 .videorow__text>* {
@@ -36,7 +35,6 @@
 }
 
 .videorow__headline {
-    margin-top: 6px;
-    font-size: 12px;
+    font-size: 2px;
     color: #606060 !important;
 }

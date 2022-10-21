@@ -48,7 +48,7 @@ const SignIn = () => {
     localStorage.setItem("token", user.xc.access_token);
     const profileImg = user.getBasicProfile().getImageUrl();
     localStorage.setItem("profilUser", profileImg);
-    Navigate("/userAuth");
+    Navigate("/myChannel");
   };
 
   return (

@@ -3,14 +3,7 @@ import Avatar from "@material-ui/core/Avatar";
 import "./style.css";
 import VideoPlayer from "../VideoPLayer";
 
-const VideoCard = ({
-  image,
-  title,
-  channel,
-  views,
-  timestamp,
-  channelImage,
-}) => {
+const VideoCard = ({ image, channelImage, title, channel, views, timestamp, description }) => {
   return (
     <div className="videocard" onClick={<VideoPlayer />}>
       <img className="videocard__image" src={image} alt="" />
@@ -22,8 +15,8 @@ const VideoCard = ({
         />
         <div className="videocard__text">
           <h4>{title}</h4>
-          <p>{channel}</p>
-
+          <p>{channel} • {views} views • {timestamp}</p>
+          <p>{description}</p>
         </div>
       </div>
     </div>

@@ -29,7 +29,3 @@
 .sidebarrow:hover>.sidebarrow__title {
     font-weight: bold;
 }
-
-.sidebarrow.selected {
-    background-color: #64CCDA;
-}

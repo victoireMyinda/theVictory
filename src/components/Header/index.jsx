@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, NavLink } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
-import VideoCallIcon from "@material-ui/icons/VideoCall";
-import AppsIcon from "@material-ui/icons/Apps";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import Avatar from "@material-ui/core/Avatar";
 import SearchPage from "../SearchPage";
 import { gapi, loadAuth2 } from "gapi-script";
+import Logout from "../Logout"
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 

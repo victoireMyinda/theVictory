@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import Video from "../Video";
-import RecommendedVideos from "../RecommendedVideos";
 import VideoInfo from "../VideoInfo";
 import axios from "axios";
 import CircularProgress from "@material-ui/core/CircularProgress";

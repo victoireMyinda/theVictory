@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import VideoCard from "../VideoCard";
-import axios from "axios";
-import { DateTime } from "luxon";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Alert from "@material-ui/lab/Alert";
 
@@ -22,8 +20,10 @@ const ListVideosChannel = () => {
       .then((response) => response.json())
       .then((data) => {
         setVideoCards(data.items)
+        setIsLoading(false)
         //console.log(data.items);
         // createVideoCards(data.items);
+
       })
       .catch(() => setIsError(true));
   }, []);

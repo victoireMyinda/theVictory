@@ -5,11 +5,11 @@ import axios from "axios";
 import { DateTime } from "luxon";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Alert from "@material-ui/lab/Alert";
-import ListVideosChannel from "../ListVideosChannel";
+
 
 import "./style.css";
 
-const RecommendedVideos = () => {
+const Channels = () => {
   const clientId =
     "921844704692-a5d8lqqg00nf3lqtls6mo1frkfi5jm02.apps.googleusercontent.com";
 
@@ -89,7 +89,6 @@ const RecommendedVideos = () => {
               <VideoCard
                 title={item.title}
                 image={item.image}
-                views={item.views}
                 timestamp={item.timestamp}
                 channel={item.channel}
                 channelImage={item.channelImage}
@@ -102,4 +101,4 @@ const RecommendedVideos = () => {
   );
 };
 
-export default RecommendedVideos;
+export default Channels;

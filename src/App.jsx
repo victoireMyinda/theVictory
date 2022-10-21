@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
-import RecommendedVideos from "./components/RecommendedVideos";
+import Channels from "./components/Channels";
 import SearchPage from "./components/SearchPage";
 import ListVideosChannel from "./components/ListVideosChannel";
 import VideoPlayer from "./components/VideoPLayer";
@@ -44,7 +44,7 @@ const App = () => {
                   <VideoPlayer />
                 </div>
                 <div className="col-4">
-                  <RecommendedVideos />
+                  <Channels />
                 </div>
               </div>
             </div>
@@ -70,7 +70,7 @@ const App = () => {
 
         <Route
           exact
-          path="/userAuth"
+          path="/myChannel"
           element={
             <div className="app__mainpage container-fluid">
               <Header />
@@ -79,7 +79,7 @@ const App = () => {
                   <SideBar />
                 </div>
                 <div className="col-10">
-                  <RecommendedVideos />
+                  <Channels />
                 </div>
               </div>
             </div>
@@ -118,17 +118,6 @@ const App = () => {
             </div>
           }
         />
-
-
-
-
-
-
-
-
-
-
-
       </Routes>
     </div>
   );

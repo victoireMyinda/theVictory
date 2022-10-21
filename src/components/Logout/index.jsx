@@ -20,6 +20,24 @@ const Logout = () => {
     setAuth2();
   }, []);
 
-  return <></>;
+  const signOut = () => {
+    const setAuth2 = async () => {
+      const auth2 = await loadAuth2(
+        gapi,
+        clientId,
+        "https://www.googleapis.com/auth/youtube.force-ssl"
+      );
+      if (auth2.isSignedIn.get()) {
+        auth2.signOut();
+      }
+    };
+
+    setAuth2().then(() => {
+      navigate("/");
+    });
+  };
+
+  return <>
+    <button>lkljkhjghggf</button></>;
 };
 export default Logout;
