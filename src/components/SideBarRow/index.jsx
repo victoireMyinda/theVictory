@@ -2,6 +2,8 @@ import React from "react";
 import "./style.css";
 
 const SideBarRow = ({ Icon, title }) => {
+
+
   return (
     <div className="sidebarrow">
       <Icon className='sidebarrow__icon' />

@@ -1,6 +1,5 @@
 import React from "react";
 import SideBarRow from "../SideBarRow";
-import "./style.css";
 import HomeIcon from "@material-ui/icons/Home";
 import WhatshotIcon from "@material-ui/icons/Whatshot";
 import SubscriptionsIcon from "@material-ui/icons/Subscriptions";
@@ -11,42 +10,65 @@ import WatchLaterIcon from "@material-ui/icons/WatchLater";
 import ThumbUpIcon from "@material-ui/icons/ThumbUp";
 import { Link, NavLink } from "react-router-dom";
 
-const SideBar = () => {
+import "./style.css";
 
-  let activeStyle = { background: "#D0383C" };
+const SideBar = () => {
+  let activeStyle = {
+    background: "#D0383C"
+  };
 
   return (
     <div className="sidebar">
-
-      <NavLink to='/home'>
+      <NavLink to='/home' style={({ isActive }) => (isActive ? activeStyle : undefined)}>
         <SideBarRow
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
           Icon={HomeIcon}
           title="Home"
         />
       </NavLink >
 
       <NavLink to='/Trending'>
-        <SideBarRow Icon={WhatshotIcon} title="Trending" />
+        <SideBarRow
+          Icon={WhatshotIcon}
+          title="Trending" />
       </NavLink>
 
-
-      <NavLink to='/myChannel'>
+      <NavLink to='/myChannel' style={({ isActive }) => (isActive ? activeStyle : undefined)}>
         <SideBarRow
-          style={({ isActive }) => (isActive ? activeStyle : undefined)}
           Icon={SubscriptionsIcon}
           title="Subscription"
         />
       </NavLink>
 
       <hr />
-      <SideBarRow Icon={VideoLibraryIcon} title="Library" />
-      <SideBarRow Icon={HistoryIcon} title="History" />
-      <SideBarRow Icon={OndemandVideoIcon} title="Your videos" />
-      <SideBarRow Icon={WatchLaterIcon} title="Watch later" />
+      <NavLink to='/Library'>
+        <SideBarRow
+          Icon={VideoLibraryIcon}
+          title="Library" />
+      </NavLink>
 
-      <NavLink>
-        <SideBarRow Icon={ThumbUpIcon} title="Liked videos" />
+      <NavLink to='/History'>
+        <SideBarRow
+          Icon={HistoryIcon}
+          title="History" />
+      </NavLink>
+
+      <NavLink to='/YourVideos'>
+        <SideBarRow
+          Icon={OndemandVideoIcon}
+          title="Your videos" />
+      </NavLink>
+
+      <hr />
+      <NavLink to='/WatchLater'>
+        <SideBarRow
+          Icon={WatchLaterIcon}
+          title="Watch later" />
+      </NavLink>
+
+      <NavLink to='/LikedVideos'>
+        <SideBarRow
+          Icon={ThumbUpIcon}
+          title="Liked videos" />
       </NavLink>
       <hr />
     </div>

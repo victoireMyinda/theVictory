@@ -1,0 +1,70 @@
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import VideoCard from "../../components/VideoCard";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import Alert from "@material-ui/lab/Alert";
+
+import "./style.css";
+
+const LikedVideos = () => {
+    const clientId =
+        "921844704692-a5d8lqqg00nf3lqtls6mo1frkfi5jm02.apps.googleusercontent.com";
+
+    const [videoCards, setVideoCards] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
+    const user = localStorage.getItem("token");
+
+
+
+    useEffect(() => {
+        fetch(
+            `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&myRating=like&maxResults=13&key=AIzaSyBECTQ9-UglEFWRsemrTyGIsqHUoAqmd8c`,
+            {
+                method: "GET",
+                headers: new Headers({ Authorization: `Bearer ${user}` }),
+            }
+        )
+            .then((response) => response.json())
+            .then((data) => {
+                setVideoCards(data.items)
+                setIsLoading(false)
+                console.log(data.items);
+                // createVideoCards(data.items);
+
+            })
+            .catch(() => setIsError(true));
+    }, []);
+
+    if (isError) {
+        return (
+            <Alert severity="error" className="alert alert-danger">
+                Recherche non trouvée
+            </Alert>
+        );
+    }
+    return (
+        <div className="recommendedvideos">
+            {isLoading ? (
+                <div className="d-flex justify-content-center">
+                    <CircularProgress className="spinner text-info " role="status" />
+                </div>
+            ) : null}
+            <div className="recommendedvideos__videos">
+                {videoCards.map((video, index) => {
+                    return (
+                        <Link key={index} to={`/video/${video.id}`}>
+                            <VideoCard
+                                title={video.snippet.title}
+                                image={video.snippet.thumbnails.medium.url}
+                                views={video.statistics.viewCount}
+                            />
+                        </Link>
+                    );
+                })}
+            </div>
+        </div>
+    );
+};
+
+export default LikedVideos;

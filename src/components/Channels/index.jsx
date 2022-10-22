@@ -29,7 +29,7 @@ const Channels = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.items);
+        //console.log(data.items);
         createVideoCards(data.items);
       })
       .catch(() => setIsError(true));

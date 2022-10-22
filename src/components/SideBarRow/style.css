@@ -4,6 +4,10 @@
     padding: 10px 20px;
 }
 
+.sidebarrow:active {
+    background-color: lightgray;
+}
+
 .sidebarrow__icon {
     color: #606060;
     font-size: large !important;

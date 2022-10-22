@@ -75,7 +75,7 @@ const HomePage = () => {
                         return (
 
                             <Link key={item.videoId} to={`/video/${item.videoId}`}>
-                                <VideoCard key={item.videoId}
+                                <VideoCard
                                     title={item.title}
                                     image={item.image}
                                     views={item.views}

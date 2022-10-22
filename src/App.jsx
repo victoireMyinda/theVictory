@@ -9,6 +9,7 @@ import GoogleLogin from "./components/GoogleLogin";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage"
+import LikedVideos from "./pages/LikedVideos";
 
 import "./App.css"
 
@@ -104,6 +105,26 @@ const App = () => {
             </div>
           }
         />
+
+
+        <Route
+          exact
+          path="/LikedVideos"
+          element={
+            <div className="app__mainpage container-fluid">
+              <Header />
+              <div className="row">
+                <div className="col-2">
+                  <SideBar />
+                </div>
+                <div className="col-10">
+                  < LikedVideos />
+                </div>
+              </div>
+            </div>
+          }
+        />
+
 
         <Route
           exact
