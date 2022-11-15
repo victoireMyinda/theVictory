@@ -21,7 +21,7 @@ const ListVideosChannel = () => {
       .then((data) => {
         setVideoCards(data.items)
         setIsLoading(false)
-        //console.log(data.items);
+        console.log(data.items);
         // createVideoCards(data.items);
 
       })

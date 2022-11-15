@@ -53,6 +53,7 @@ const Header = (props) => {
           />
         </div>
         <Link to={`/search/${inputSearch}`}>
+
           <button
             id="search-button"
             type="button"
@@ -61,6 +62,7 @@ const Header = (props) => {
           >
             <i className="fas fa-search header__searchbutton"></i>
           </button>
+
         </Link>
       </div>
 
@@ -68,7 +70,7 @@ const Header = (props) => {
         <Avatar alt="Nouman Ahmed" src={userConnected} />
 
         <button className="btn btn-danger " onClick={signOut}>
-          Deconnexion
+          Logout
         </button>
       </div>
     </div>

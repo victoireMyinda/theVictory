@@ -13,26 +13,22 @@ import { Link, NavLink } from "react-router-dom";
 import "./style.css";
 
 const SideBar = () => {
-  let activeStyle = {
-    background: "#D0383C"
-  };
-
   return (
     <div className="sidebar">
-      <NavLink to='/home' style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+      <NavLink to='/home'>
         <SideBarRow
           Icon={HomeIcon}
           title="Home"
         />
       </NavLink >
 
-      <NavLink to='/Trending'>
+      <NavLink to='/trending'>
         <SideBarRow
           Icon={WhatshotIcon}
           title="Trending" />
       </NavLink>
 
-      <NavLink to='/myChannel' style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+      <NavLink to='/myChannel'>
         <SideBarRow
           Icon={SubscriptionsIcon}
           title="Subscription"
@@ -40,26 +36,26 @@ const SideBar = () => {
       </NavLink>
 
       <hr />
-      <NavLink to='/Library'>
+      <NavLink to='/library'>
         <SideBarRow
           Icon={VideoLibraryIcon}
           title="Library" />
       </NavLink>
 
-      <NavLink to='/History'>
+      <NavLink to='/history'>
         <SideBarRow
           Icon={HistoryIcon}
           title="History" />
       </NavLink>
 
-      <NavLink to='/YourVideos'>
+      <NavLink to='/yourvideos'>
         <SideBarRow
           Icon={OndemandVideoIcon}
           title="Your videos" />
       </NavLink>
 
       <hr />
-      <NavLink to='/WatchLater'>
+      <NavLink to='/watchlater'>
         <SideBarRow
           Icon={WatchLaterIcon}
           title="Watch later" />

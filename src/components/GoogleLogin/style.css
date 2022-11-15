@@ -17,3 +17,12 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+.h {
+    height: 550px;
+}
+
+.h-row {
+    height: 400px;
+    margin-top: 80px;
+}
