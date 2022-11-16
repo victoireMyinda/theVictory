@@ -68,8 +68,7 @@ const Header = (props) => {
 
       <div className="header__right">
         <Avatar alt="Nouman Ahmed" src={userConnected} />
-
-        <button className="btn btn-danger " onClick={signOut}>
+        <button className="btn btn-danger" onClick={signOut}>
           Logout
         </button>
       </div>

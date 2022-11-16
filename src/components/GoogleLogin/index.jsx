@@ -66,7 +66,7 @@ const SignIn = () => {
 
                   <div
                     id="started"
-                    className="btn btn-danger d-block text-center"
+                    className="btn btn-danger d-block text-center btn-login"
                   >
                     Sign in with Google
                   </div>

@@ -3,9 +3,6 @@ import "./style.css";
 
 const SideBarRow = ({ Icon, title }) => {
 
-
-  // style={({ isActive }) => (isActive ? activeStyle : undefined)}
-
   return (
     <div className="sidebarrow">
       <Icon className='sidebarrow__icon' />
