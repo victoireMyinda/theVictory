@@ -1,5 +1,6 @@
 .all {
     background-color: #00bbf0;
+    margin-top: -100px !important;
 }
 
 .card-img-left {
@@ -19,7 +20,7 @@
 }
 
 .h {
-    height: 550px;
+    height: 500px;
 }
 
 .h-row {

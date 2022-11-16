@@ -27,7 +27,7 @@ const App = () => {
           element={
             <div className="container-fluid">
               <Header />
-              <div className="row">
+              <div className="row position-top">
                 <div className="col-2">
                   <SideBar />
                 </div>
@@ -45,7 +45,7 @@ const App = () => {
           element={
             <div className=" container-fluid">
               <Header />
-              <div className="row">
+              <div className="row  position-top">
                 <div className="col-8">
                   <VideoPlayer />
                 </div>
@@ -62,7 +62,7 @@ const App = () => {
           element={
             <div className="container-fluid">
               <Header />
-              <div className="row">
+              <div className="row  position-top">
                 <div className="col-2">
                   <SideBar />
                 </div>
@@ -80,7 +80,7 @@ const App = () => {
           element={
             <div className="app__mainpage container-fluid">
               <Header />
-              <div className="row">
+              <div className="row  position-top">
                 <div className="col-2">
                   <SideBar />
                 </div>
@@ -99,7 +99,7 @@ const App = () => {
           element={
             <div className="app__mainpage container-fluid">
               <Header />
-              <div className="row">
+              <div className="row  position-top">
                 <div className="col-2">
                   <SideBar />
                 </div>
@@ -117,7 +117,7 @@ const App = () => {
           element={
             <div className="app__mainpage container-fluid">
               <Header />
-              <div className="row">
+              <div className="row  position-top">
                 <div className="col-2">
                   <SideBar />
                 </div>
@@ -135,7 +135,7 @@ const App = () => {
           element={
             <div className="app__mainpage container-fluid">
               <Header />
-              <div className="row">
+              <div className="row  position-top">
                 <div className="col-2">
                   <SideBar />
                 </div>
@@ -153,7 +153,7 @@ const App = () => {
           element={
             <div className="app__mainpage container-fluid">
               <Header />
-              <div className="row">
+              <div className="row  position-top">
                 <div className="col-2">
                   <SideBar />
                 </div>
@@ -171,7 +171,7 @@ const App = () => {
           element={
             <div className="app__mainpage container-fluid">
               <Header />
-              <div className="row">
+              <div className="row  position-top">
                 <div className="col-2">
                   <SideBar />
                 </div>
@@ -189,7 +189,7 @@ const App = () => {
           element={
             <div className="app__mainpage container-fluid">
               <Header />
-              <div className="row">
+              <div className="row  position-top">
                 <div className="col-2">
                   <SideBar />
                 </div>
@@ -208,7 +208,7 @@ const App = () => {
           element={
             <div className="app__mainpage container-fluid">
               <Header />
-              <div className="row">
+              <div className="row  position-top">
                 <div className="col-2">
                   <SideBar />
                 </div>
@@ -226,7 +226,7 @@ const App = () => {
           path="/"
           element={
             <div className="app__mainpage container-fluid">
-              <div className="row">
+              <div className="row  position-top">
                 <div className="col-12 ">
                   <GoogleLogin />
                 </div>
