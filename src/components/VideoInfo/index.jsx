@@ -31,9 +31,6 @@ const VideoInfo = ({
         <div className="videoinfo__likes">
           <SideBarRow Icon={ThumbUpIcon} title={likeCount} />
           <SideBarRow Icon={ThumbDownIcon} title={dislikeCount} />
-          <SideBarRow Icon={ReplyIcon} title="SHARE" />
-          <SideBarRow Icon={PlaylistAddIcon} title="SAVE" />
-          <SideBarRow Icon={MoreHorizIcon} title="" />
         </div>
       </div>
       <hr />

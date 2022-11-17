@@ -18,53 +18,29 @@ const SideBar = () => {
       <NavLink to='/home'>
         <SideBarRow
           Icon={HomeIcon}
-          title="Home"
+          title="Accueil"
         />
       </NavLink >
-
-      <NavLink to='/trending'>
-        <SideBarRow
-          Icon={WhatshotIcon}
-          title="Trending" />
-      </NavLink>
+      <hr />
 
       <NavLink to='/myChannel'>
         <SideBarRow
           Icon={SubscriptionsIcon}
-          title="Subscription"
+          title="Chaines"
         />
       </NavLink>
-
       <hr />
-      <NavLink to='/library'>
+      <NavLink to='/LikedVideos'>
         <SideBarRow
-          Icon={VideoLibraryIcon}
-          title="Library" />
-      </NavLink>
-
-      <NavLink to='/history'>
-        <SideBarRow
-          Icon={HistoryIcon}
-          title="History" />
-      </NavLink>
-
-      <NavLink to='/yourvideos'>
-        <SideBarRow
-          Icon={OndemandVideoIcon}
-          title="Your videos" />
+          Icon={ThumbUpIcon}
+          title="Videos likées" />
       </NavLink>
 
       <hr />
       <NavLink to='/watchlater'>
         <SideBarRow
           Icon={WatchLaterIcon}
-          title="Watch later" />
-      </NavLink>
-
-      <NavLink to='/LikedVideos'>
-        <SideBarRow
-          Icon={ThumbUpIcon}
-          title="Liked videos" />
+          title="Regarder plus tard" />
       </NavLink>
       <hr />
     </div>

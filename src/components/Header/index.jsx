@@ -47,7 +47,7 @@ const Header = (props) => {
             type="search"
             id="form1"
             class="form-control"
-            placeholder="Search"
+            placeholder="Recherche"
             onChange={(e) => setInputSearch(e.target.value)}
             value={inputSearch}
           />
@@ -69,7 +69,7 @@ const Header = (props) => {
       <div className="header__right">
         <Avatar alt="Nouman Ahmed" src={userConnected} />
         <button className="btn btn-danger" onClick={signOut}>
-          Logout
+          Deconnexion
         </button>
       </div>
     </div>
