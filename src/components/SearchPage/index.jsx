@@ -24,7 +24,7 @@ const SearchPage = (props) => {
 
     axios
       .get(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&type=video&q=${searchQuery}&safeSearch=none&key=AIzaSyAxYTdTGDlgbCAqKpQhTrVlpCN4l3Eyl0I`
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=15&type=video&q=${searchQuery}&safeSearch=none&key=${import.meta.env.VITE_APP_YOUTUBE_API_KEY}`
       )
       .then((response) => {
         createVideoRows(response.data["items"]);
@@ -42,7 +42,7 @@ const SearchPage = (props) => {
     for (const video of videos) {
       const videoId = video.id.videoId;
       const response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/videos?part=statistics%2C%20snippet&id=${videoId}&key=AIzaSyAxYTdTGDlgbCAqKpQhTrVlpCN4l3Eyl0I`
+        `https://www.googleapis.com/youtube/v3/videos?part=statistics%2C%20snippet&id=${videoId}&key=${import.meta.env.VITE_APP_YOUTUBE_API_KEY}`
       );
       const views = response.data.items[0].statistics.viewCount;
       const snippet = video.snippet;
@@ -76,7 +76,7 @@ const SearchPage = (props) => {
     <div className="searchpage">
       <div className="searchpage__filter">
         <TuneIcon />
-        <h2>Filter</h2>
+        <h2>Resultat de la recherche : </h2>
       </div>
       {isLoading ? (
         <div className="d-flex justify-content-center">

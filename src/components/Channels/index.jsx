@@ -21,7 +21,7 @@ const Channels = () => {
 
   useEffect(() => {
     fetch(
-      `https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet%2CcontentDetails&maxResults=50&mine=true&key=AIzaSyBECTQ9-UglEFWRsemrTyGIsqHUoAqmd8c`,
+      `https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet%2CcontentDetails&maxResults=50&mine=true&key=${import.meta.env.VITE_APP_API_CLIENT}`,
       {
         method: "GET",
         headers: new Headers({ Authorization: `Bearer ${user}` }),
@@ -43,7 +43,7 @@ const Channels = () => {
       //console.log('oo',video)
       const channelId = snippet.resourceId.channelId;
       const response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&maxResults=9&key=AIzaSyBECTQ9-UglEFWRsemrTyGIsqHUoAqmd8c`
+        `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&maxResults=9&key=${import.meta.env.VITE_APP_API_CLIENT}`
       );
       const channelImage = response.data.items[0].snippet.thumbnails.medium.url;
       const title = snippet.title;

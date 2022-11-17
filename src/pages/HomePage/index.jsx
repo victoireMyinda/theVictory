@@ -17,7 +17,7 @@ const HomePage = () => {
 
     useEffect(() => {
         axios
-            .get(`https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=12&regionCode=US&key=AIzaSyBECTQ9-UglEFWRsemrTyGIsqHUoAqmd8c`)
+            .get(`https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=12&regionCode=US&key=${import.meta.env.VITE_APP_API_CLIENT}`)
             .then(response => {
                 console.log(response.data.items)
                 createVideoCards(response.data.items);
@@ -35,7 +35,7 @@ const HomePage = () => {
             const snippet = video.snippet;
             const channelId = snippet.channelId;
             const response = await axios
-                .get(`https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=AIzaSyBECTQ9-UglEFWRsemrTyGIsqHUoAqmd8c`)
+                .get(`https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${import.meta.env.VITE_APP_API_CLIENT}`)
             const channelImage = response.data.items[0].snippet.thumbnails.medium.url;
 
             const title = snippet.title;

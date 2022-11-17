@@ -19,7 +19,7 @@ const LikedVideos = () => {
 
     useEffect(() => {
         fetch(
-            `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&myRating=like&maxResults=13&key=AIzaSyBECTQ9-UglEFWRsemrTyGIsqHUoAqmd8c`,
+            `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&myRating=like&maxResults=13&key=A${import.meta.env.VITE_APP_API_CLIENT}`,
             {
                 method: "GET",
                 headers: new Headers({ Authorization: `Bearer ${user}` }),

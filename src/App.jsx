@@ -9,11 +9,7 @@ import GoogleLogin from "./components/GoogleLogin";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage"
-import Treding from "./pages/Treding";
 import LikedVideos from "./pages/LikedVideos";
-import Library from "./pages/Library";
-import MyVideos from "./pages/MyVideos";
-import History from "./pages/History"
 import WatchLater from "./pages/WatchLater"
 
 import "./App.css"
@@ -105,78 +101,6 @@ const App = () => {
                 </div>
                 <div className="col-10">
                   < HomePage />
-                </div>
-              </div>
-            </div>
-          }
-        />
-
-        <Route
-          exact
-          path="/trending"
-          element={
-            <div className="app__mainpage container-fluid">
-              <Header />
-              <div className="row  position-top">
-                <div className="col-2">
-                  <SideBar />
-                </div>
-                <div className="col-10">
-                  < Treding />
-                </div>
-              </div>
-            </div>
-          }
-        />
-
-        <Route
-          exact
-          path="/library"
-          element={
-            <div className="app__mainpage container-fluid">
-              <Header />
-              <div className="row  position-top">
-                <div className="col-2">
-                  <SideBar />
-                </div>
-                <div className="col-10">
-                  < Library />
-                </div>
-              </div>
-            </div>
-          }
-        />
-
-        <Route
-          exact
-          path="/yourvideos"
-          element={
-            <div className="app__mainpage container-fluid">
-              <Header />
-              <div className="row  position-top">
-                <div className="col-2">
-                  <SideBar />
-                </div>
-                <div className="col-10">
-                  < MyVideos />
-                </div>
-              </div>
-            </div>
-          }
-        />
-
-        <Route
-          exact
-          path="/history"
-          element={
-            <div className="app__mainpage container-fluid">
-              <Header />
-              <div className="row  position-top">
-                <div className="col-2">
-                  <SideBar />
-                </div>
-                <div className="col-10">
-                  < History />
                 </div>
               </div>
             </div>

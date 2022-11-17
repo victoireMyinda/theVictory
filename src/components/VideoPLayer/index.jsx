@@ -19,7 +19,7 @@ const VideoPlayer = () => {
     setIsLoading(true);
     axios
       .get(
-        `https://www.googleapis.com/youtube/v3/videos?part=snippet%2C%20statistics&id=${videoId}&key=AIzaSyBECTQ9-UglEFWRsemrTyGIsqHUoAqmd8c`
+        `https://www.googleapis.com/youtube/v3/videos?part=snippet%2C%20statistics&id=${videoId}&key=${import.meta.env.VITE_APP_API_CLIENT}`
       )
       .then((response) => {
         console.log(response.data);
@@ -37,7 +37,7 @@ const VideoPlayer = () => {
     const stats = video.statistics;
     const channelId = snippet.channelId;
     const response = await axios.get(
-      `https://www.googleapis.com/youtube/v3/channels?part=snippet%2C%20statistics&id=${channelId}&key=AIzaSyBECTQ9-UglEFWRsemrTyGIsqHUoAqmd8c`
+      `https://www.googleapis.com/youtube/v3/channels?part=snippet%2C%20statistics&id=${channelId}&key=${import.meta.env.VITE_APP_API_CLIENT}`
     );
 
     const channelImage = response.data.items[0].snippet.thumbnails.medium.url;

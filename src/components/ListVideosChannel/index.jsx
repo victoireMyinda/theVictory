@@ -16,7 +16,7 @@ const ListVideosChannel = () => {
   const { channelId } = useParams()
 
   useEffect(() => {
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&maxResults=21&key=AIzaSyBECTQ9-UglEFWRsemrTyGIsqHUoAqmd8c`)
+    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&maxResults=21&key=${import.meta.env.VITE_APP_API_CLIENT}`)
       .then((response) => response.json())
       .then((data) => {
         setVideoCards(data.items)
