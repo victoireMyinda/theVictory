@@ -5,9 +5,8 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 const SignIn = () => {
-  const clientId =
-    "921844704692-a5d8lqqg00nf3lqtls6mo1frkfi5jm02.apps.googleusercontent.com";
-
+  const clientId = import.meta.env.VITE_APP_ID_CLIENT;
+  console.log("clientId: ", clientId)
   const Navigate = useNavigate();
   const [user, setUser] = useState(null);
 
