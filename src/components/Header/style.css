@@ -1,5 +1,4 @@
 .header {
-    display: flex;
     position: fixed;
     padding: 20px;
     justify-content: space-between;
@@ -30,6 +29,12 @@
 .header__right {
     display: flex;
     gap: 25px;
+}
+
+.header__right,
+.notif {
+    margin-top: 8px;
+    color: whitesmoke;
 }
 
 .header__icon {

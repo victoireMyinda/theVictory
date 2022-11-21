@@ -11,6 +11,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage"
 import LikedVideos from "./pages/LikedVideos";
 import WatchLater from "./pages/WatchLater"
+import ModifProfilUser from "./components/ModifProfilUser";
 
 import "./App.css"
 
@@ -101,6 +102,24 @@ const App = () => {
                 </div>
                 <div className="col-10">
                   < HomePage />
+                </div>
+              </div>
+            </div>
+          }
+        />
+
+        <Route
+          exact
+          path="/modifyProfilUser"
+          element={
+            <div className="app__mainpage container-fluid">
+              <Header />
+              <div className="row  position-top">
+                <div className="col-2">
+                  <SideBar />
+                </div>
+                <div className="col-10">
+                  <ModifProfilUser />
                 </div>
               </div>
             </div>

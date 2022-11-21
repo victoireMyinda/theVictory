@@ -76,7 +76,7 @@ const SearchPage = (props) => {
     <div className="searchpage">
       <div className="searchpage__filter">
         <TuneIcon />
-        <h2>Resultat de la recherche : </h2>
+        <h2>Resultat de la recherche pour : </h2>
       </div>
       {isLoading ? (
         <div className="d-flex justify-content-center">

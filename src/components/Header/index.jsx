@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { Link, useNavigate, NavLink } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import Avatar from "@material-ui/core/Avatar";
+import NotificationsIcon from '@material-ui/icons/Notifications';
 import SearchPage from "../SearchPage";
 import { gapi, loadAuth2 } from "gapi-script";
-import Logout from "../Logout"
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
+
+
 
 const Header = (props) => {
   const [inputSearch, setInputSearch] = useState("");
@@ -67,7 +69,9 @@ const Header = (props) => {
       </div>
 
       <div className="header__right">
-        <Avatar alt="Nouman Ahmed" src={userConnected} />
+        <NotificationsIcon alt="notification" src={NotificationsIcon} className="notif" />
+        <Avatar alt="Nouman Ahmed" src={userConnected} onClick={() => { alert("hello") }} />
+
         <button className="btn btn-danger" onClick={signOut}>
           Deconnexion
         </button>

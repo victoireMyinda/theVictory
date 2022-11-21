@@ -1,0 +1,3 @@
+# modules et variables d'environnements
+node_modules
+.env
