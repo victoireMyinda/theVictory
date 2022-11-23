@@ -1,0 +1,29 @@
+.AvatarAndUserName {
+    margin: 10px;
+}
+
+.userName {
+    margin-top: 7px;
+    margin-left: 15px;
+}
+
+.userName span {
+    margin: 7px;
+}
+
+.btns {
+    display: flex;
+    margin-top: 10px;
+    justify-content: right;
+    gap: 10px;
+}
+
+.likeDislikeResponse {
+    gap: 20px;
+}
+
+.userComment {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 10px;
+}

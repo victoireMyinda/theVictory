@@ -44,6 +44,7 @@ const ListVideosChannel = () => {
       ) : null}
       <div className="recommendedvideos__videos">
         {videoCards.map((video, index) => {
+
           return (
             <Link key={index} to={`/video/${video.id.videoId}`}>
               <VideoCard

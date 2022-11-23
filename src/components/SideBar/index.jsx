@@ -26,7 +26,7 @@ const SideBar = () => {
       <NavLink to='/myChannel'>
         <SideBarRow
           Icon={SubscriptionsIcon}
-          title="Chaines"
+          title="Mes abonnements"
         />
       </NavLink>
       <hr />

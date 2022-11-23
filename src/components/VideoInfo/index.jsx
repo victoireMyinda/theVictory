@@ -1,12 +1,8 @@
 import React from "react";
-import ThumbUpIcon from "@material-ui/icons/ThumbUp";
-import ThumbDownIcon from "@material-ui/icons/ThumbDown";
-import SideBarRow from "../SideBarRow";
-import ReplyIcon from "@material-ui/icons/Reply";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
-import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
 import "./style.css";
 import { Avatar, Button } from "@material-ui/core";
+import numeral from "numeral";
+import { ThumbUp, ThumbDown } from "@material-ui/icons";
 
 const VideoInfo = ({
   title,
@@ -26,11 +22,12 @@ const VideoInfo = ({
       </div>
       <div className="videoinfo__stats">
         <p>
-          {viewCount} views • {publishedDate}
+          {numeral(viewCount).format("0.a")} vues
+          • {publishedDate}
         </p>
         <div className="videoinfo__likes">
-          <SideBarRow Icon={ThumbUpIcon} title={likeCount} />
-          <SideBarRow Icon={ThumbDownIcon} title={dislikeCount} />
+          <ThumbUp /> {numeral(likeCount).format("0.a")}
+          <ThumbDown /> {numeral(dislikeCount).format("0.a")}
         </div>
       </div>
       <hr />
@@ -43,13 +40,15 @@ const VideoInfo = ({
           />
           <div className="videoinfo__channelinfo">
             <h3 className="videoinfo__channeltitle">{channelTitle}</h3>
-            <p className="videoinfo__channelsubs">{subs} subscribers</p>
+            <p className="videoinfo__channelsubs">{numeral(subs).format("0.a")} Abonnements</p>
           </div>
         </div>
         <div className="videoinfo__subscribe">
-          <Button color="secondary">SUBSCRIBE</Button>
+          <button className="btn btn-danger">S'abonner</button>
+
         </div>
       </div>
+      <br />
       <div className="videoinfo__channeldesc">
         <p>{description}</p>
       </div>

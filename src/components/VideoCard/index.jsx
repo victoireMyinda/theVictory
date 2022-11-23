@@ -2,6 +2,7 @@ import React from "react";
 import Avatar from "@material-ui/core/Avatar";
 import "./style.css";
 import VideoPlayer from "../VideoPLayer";
+import numeral from "numeral";
 
 const VideoCard = ({ image, channelImage, title, channel, views, timestamp, description }) => {
   return (
@@ -15,7 +16,7 @@ const VideoCard = ({ image, channelImage, title, channel, views, timestamp, desc
         />
         <div className="videocard__text">
           <h4>{title}</h4>
-          <p>{channel} • {views} views • {timestamp}</p>
+          <p>{channel} • {numeral(views).format("0.a")} vues • {timestamp}</p>
           <p>{description}</p>
         </div>
       </div>

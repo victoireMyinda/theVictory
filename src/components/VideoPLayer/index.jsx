@@ -5,6 +5,8 @@ import VideoInfo from "../VideoInfo";
 import axios from "axios";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Alert from "@material-ui/lab/Alert";
+import { Avatar } from "@mui/material";
+import { ThumbUp, ThumbDown } from "@material-ui/icons";
 import "./style.css";
 
 const VideoPlayer = () => {
@@ -101,6 +103,55 @@ const VideoPlayer = () => {
               subs={videoInfo.subs}
             />
           ) : null}
+        </div>
+
+        <div className="container-fluid commentaire">
+          <div className="titleComment">
+            <h4 className="text-secondary">commentaires(500)</h4>
+          </div>
+          <hr />
+
+          <div>
+            <form>
+              <div class="form-group">
+                <label for="comment">Ajouter un commentaire</label>
+                <textarea class="form-control" id="comment" rows="2"></textarea>
+              </div>
+            </form>
+            <div className="btns d-flex">
+              <button className="btn btn-danger" >Annuler</button>
+              <button className="btn btn-info text-white" type="submit">Envoyer</button>
+            </div>
+
+            <hr />
+
+            <div className="userComment ">
+              <div className="AvatarAndUserName d-flex">
+                <div className="img">  <Avatar /> </div>
+                <div className="userName">
+                  <span>Victoire myinda.</span>
+                  <span>Il y'a 4 heures</span>
+                </div>
+              </div>
+
+              <div className="responseComment">
+                <p>
+                  Quand ma fille était étudiante en pharmacie, elle a vu une pharmacie et elle voulait cette pharmacie ! Je lui
+                  ai conseillé de se visualiser dans la pharmacie, de ressentir  ce qu'elle ferait, de le vivre comme si la pharmacie
+                  lui appartenait, les modifications  qu'elle pourrait faire, etc.  Elle m'a écoutée. À la fin de ses études elle a fait son stage..
+                </p>
+
+                <div className="likeDislikeResponse d-flex">
+                  <div className="like"><ThumbUp /> 80</div>
+                  <div className="dislike"><ThumbDown /> 0</div>
+                  <div className="response"> <button className="btn btn-info text-white">Repondre</button></div>
+
+                  <div className="subComment"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

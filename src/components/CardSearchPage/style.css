@@ -2,29 +2,22 @@
     display: flex;
     margin-bottom: 30px;
     max-width: 700px;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.videorow:hover {
-    transform: scale(1.1);
-    background-color: #64CCDA;
 }
 
 .videorow>img {
-    width: 300px;
-    height: 200px;
+    width: 350px;
+    height: 230px;
 }
 
 .videorow__text>* {
-    margin: 0px;
+    margin-top: 10px;
 }
 
 .videorow__text {
-    margin-left: 14px
+    margin-left: 17px
 }
 
-.videorow__text>h3 {
+.videorow__text>h6 {
     margin-top: 8px;
 }
 
@@ -35,6 +28,15 @@
 }
 
 .videorow__headline {
-    font-size: 2px;
     color: #606060 !important;
+}
+
+.videocard__avatar {
+    height: 30px !important;
+    width: 30px !important;
+}
+
+.avatarChannel {
+    display: flex;
+    gap: 10px;
 }

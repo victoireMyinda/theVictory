@@ -10,8 +10,9 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage"
 import LikedVideos from "./pages/LikedVideos";
-import WatchLater from "./pages/WatchLater"
 import ModifProfilUser from "./components/ModifProfilUser";
+import WatchLater from "./pages/WatchLater"
+
 
 import "./App.css"
 
@@ -163,7 +164,6 @@ const App = () => {
           }
         />
 
-
         <Route
           exact
           path="/"
@@ -178,6 +178,8 @@ const App = () => {
           }
         />
       </Routes>
+
+
     </div>
   );
 };

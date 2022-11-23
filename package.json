@@ -13,6 +13,7 @@
     "license": "ISC",
     "dependencies": {
         "@emotion/react": "^11.10.5",
+        "@emotion/styled": "^11.10.5",
         "@material-ui/core": "^4.12.4",
         "@material-ui/icons": "^4.11.3",
         "@material-ui/lab": "^4.0.0-alpha.61",
@@ -26,7 +27,10 @@
         "luxon": "^3.0.4",
         "material-ui": "^0.20.2",
         "moment": "^2.29.4",
+        "numeral": "^2.0.6",
         "react-google-login": "^5.2.2",
+        "react-number-format": "^5.1.2",
+        "react-numeral": "^1.1.1",
         "react-player": "^2.11.0",
         "react-router": "^6.4.2",
         "react-router-dom": "^6.4.2",

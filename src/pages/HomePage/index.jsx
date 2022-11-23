@@ -37,7 +37,6 @@ const HomePage = () => {
             const response = await axios
                 .get(`https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${import.meta.env.VITE_APP_API_CLIENT}`)
             const channelImage = response.data.items[0].snippet.thumbnails.medium.url;
-
             const title = snippet.title;
             const image = snippet.thumbnails.medium.url;
             const views = video.statistics.viewCount;

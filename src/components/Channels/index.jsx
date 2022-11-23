@@ -40,8 +40,8 @@ const Channels = () => {
     for (const video of videoItems) {
       const videoId = video.id;
       const snippet = video.snippet;
-      //console.log('oo',video)
       const channelId = snippet.resourceId.channelId;
+      const channelid = window.localStorage.setItem('channel', channelId)
       const response = await axios.get(
         `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&maxResults=9&key=${import.meta.env.VITE_APP_API_CLIENT}`
       );

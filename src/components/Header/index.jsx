@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { Link, useNavigate, NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, NavLink, useParams } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import Avatar from "@material-ui/core/Avatar";
-import NotificationsIcon from '@material-ui/icons/Notifications';
 import SearchPage from "../SearchPage";
+import ProfilUser from "../ProfilUser";
+import NotifProfilUser from "../NotifProfilUser";
 import { gapi, loadAuth2 } from "gapi-script";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
@@ -13,9 +14,11 @@ import "./style.css";
 const Header = (props) => {
   const [inputSearch, setInputSearch] = useState("");
   const navigate = useNavigate();
+  const params = useParams()
+
   const clientId =
     "921844704692-a5d8lqqg00nf3lqtls6mo1frkfi5jm02.apps.googleusercontent.com";
-  const userConnected = window.localStorage.getItem("profilUser");
+
 
   const signOut = () => {
     const setAuth2 = async () => {
@@ -33,6 +36,12 @@ const Header = (props) => {
       navigate("/");
     });
   };
+
+  useEffect(() => {
+    if (params.hasOwnProperty("searchQuery")) {
+      setInputSearch(params.searchQuery);
+    }
+  }, [params]);
 
   return (
     <div className="header container-fluid navbar navbar-expand-lg ">
@@ -69,9 +78,8 @@ const Header = (props) => {
       </div>
 
       <div className="header__right">
-        <NotificationsIcon alt="notification" src={NotificationsIcon} className="notif" />
-        <Avatar alt="Nouman Ahmed" src={userConnected} onClick={() => { alert("hello") }} />
-
+        <NotifProfilUser />
+        <ProfilUser />
         <button className="btn btn-danger" onClick={signOut}>
           Deconnexion
         </button>

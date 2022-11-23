@@ -1,17 +1,11 @@
-
 import React from 'react'
+import NotificationsIcon from '@material-ui/icons/Notifications';
 import { Box, Avatar, Menu, MenuItem, ListItemIcon, Divider, IconButton, Tooltip } from '@mui/material'
 import { PersonAdd, Settings, Logout } from '@mui/icons-material';
-import ModifProfilUser from '../ModifProfilUser';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import { GitHub } from '@material-ui/icons';
-import { LinkedIn } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
 
-import './style.css'
 
-
-const ProfilUser = () => {
+const NotifProfilUser = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -20,11 +14,11 @@ const ProfilUser = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
-    const userImg = window.localStorage.getItem("profilUser");
+
     return (
         <>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-                <Tooltip title="Account settings">
+                <Tooltip title="Notifications">
                     <IconButton
                         onClick={handleClick}
                         size="small"
@@ -32,7 +26,7 @@ const ProfilUser = () => {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                     >
-                        <Avatar alt="user connected" src={userImg} />
+                        <NotificationsIcon alt="notification" src={NotificationsIcon} className="notif" />
                     </IconButton>
                 </Tooltip>
             </Box>
@@ -71,36 +65,18 @@ const ProfilUser = () => {
                 transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             >
-
-                <MenuItem>
-                    <Avatar /> Victoire myinda
-                </MenuItem>
-                <Divider />
-
-                <MenuItem>
-                    <LinkedIn />    LinkedIn
-                </MenuItem>
-
-                <MenuItem>
-                    <GitHub />    Github
-                </MenuItem>
-
-                <MenuItem>
-                    <FacebookIcon /> Facebook
-                </MenuItem>
-
-                <MenuItem>
-                    <Avatar />Portfolio
-                </MenuItem>
-
-                <Divider />
-                <Link to='/modifyProfilUser'>
+                <Link to='/video/:videoId'>
                     <MenuItem>
-                        <Avatar /> Modifier compte
-                    </MenuItem>
-                </Link>
+                        <Avatar /> Victoire myinda vous a notifié
+                    </MenuItem></Link>
+
+                <Divider />
+
+                <MenuItem>
+                    <Avatar /> Gloriane kingole vous a notifié
+                </MenuItem>
             </Menu>
         </>
     )
 }
-export default ProfilUser;
+export default NotifProfilUser;

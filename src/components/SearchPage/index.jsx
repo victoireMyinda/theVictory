@@ -18,6 +18,7 @@ const SearchPage = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
+
   useEffect(() => {
     setChannelRow("");
     setVideoRows([]);
@@ -44,6 +45,7 @@ const SearchPage = (props) => {
       const response = await axios.get(
         `https://www.googleapis.com/youtube/v3/videos?part=statistics%2C%20snippet&id=${videoId}&key=${import.meta.env.VITE_APP_YOUTUBE_API_KEY}`
       );
+      const channelImage = response.data.items[0].snippet.thumbnails.medium.url;
       const views = response.data.items[0].statistics.viewCount;
       const snippet = video.snippet;
       const title = snippet.title;
@@ -56,9 +58,10 @@ const SearchPage = (props) => {
         videoId,
         title,
         image,
+        channelImage,
+        channel,
         views,
         timestamp,
-        channel,
         description,
       });
     }
@@ -75,8 +78,7 @@ const SearchPage = (props) => {
   return (
     <div className="searchpage">
       <div className="searchpage__filter">
-        <TuneIcon />
-        <h2>Resultat de la recherche pour : </h2>
+        <h5>Resultat de la recherche pour : {searchQuery}</h5>
       </div>
       {isLoading ? (
         <div className="d-flex justify-content-center">
@@ -86,14 +88,16 @@ const SearchPage = (props) => {
       <hr />
 
       {videoRows.map((item) => {
+        console.log(videoRows)
         return (
           <Link key={item.videoId} to={`/video/${item.videoId}`}>
             <VideoRow
-              title={item.title}
               image={item.image}
+              title={item.title}
+              channelImage={item.channelImage}
+              channel={item.channel}
               views={item.views}
               timestamp={item.timestamp}
-              channel={item.channel}
               description={item.description}
             />
           </Link>

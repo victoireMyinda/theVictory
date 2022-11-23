@@ -19,9 +19,8 @@
     margin-top: 2px;
 }
 
-.videoinfo__likes>* {
-    padding-left: 0;
-    padding-top: 0;
+.videoinfo__likes {
+    gap: 10px;
 }
 
 .videoinfo__likes,
@@ -34,8 +33,7 @@ hr {
     height: 1px;
     border: 0;
     background-color: lightgray;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    width: 100%;
 }
 
 .videoinfo__channelinfo {
