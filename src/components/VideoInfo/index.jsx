@@ -1,13 +1,14 @@
 import React from "react";
 import "./style.css";
-import { Avatar, Button } from "@material-ui/core";
+import { Avatar } from "@material-ui/core";
 import numeral from "numeral";
+import { DateTime } from 'luxon';
 import { ThumbUp, ThumbDown } from "@material-ui/icons";
 
 const VideoInfo = ({
   title,
   description,
-  publishedDate,
+  timestamps,
   channelTitle,
   channelImage,
   viewCount,
@@ -23,7 +24,7 @@ const VideoInfo = ({
       <div className="videoinfo__stats">
         <p>
           {numeral(viewCount).format("0.a")} vues
-          • {publishedDate}
+          • publication : {timestamps}
         </p>
         <div className="videoinfo__likes">
           <ThumbUp /> {numeral(likeCount).format("0.a")}
@@ -45,7 +46,6 @@ const VideoInfo = ({
         </div>
         <div className="videoinfo__subscribe">
           <button className="btn btn-danger">S'abonner</button>
-
         </div>
       </div>
       <br />

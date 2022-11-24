@@ -4,9 +4,11 @@ import VideoPlayer from "../VideoPLayer";
 import Avatar from "@material-ui/core/Avatar";
 import { Link, useParams } from "react-router-dom";
 import numeral from "numeral";
+import ListVideosChannel from "../ListVideosChannel"
 
 
 const VideoRow = ({ image, title, channelImage, channel, views, timestamp, description }) => {
+
   return (
     <div className="videorow" onClick={<VideoPlayer />}>
       <img src={image} alt="image channel" />
@@ -21,6 +23,7 @@ const VideoRow = ({ image, title, channelImage, channel, views, timestamp, descr
           className="videocard__avatar"
           alt={channel}
           src={channelImage}
+          onClick={<ListVideosChannel />}
         />
           {channel}
         </p>

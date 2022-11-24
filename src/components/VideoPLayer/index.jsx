@@ -7,6 +7,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Alert from "@material-ui/lab/Alert";
 import { Avatar } from "@mui/material";
 import { ThumbUp, ThumbDown } from "@material-ui/icons";
+import { DateTime } from 'luxon';
 import "./style.css";
 
 const VideoPlayer = () => {
@@ -44,14 +45,7 @@ const VideoPlayer = () => {
 
     const channelImage = response.data.items[0].snippet.thumbnails.medium.url;
     const subs = response.data.items[0].statistics.subscriberCount;
-    const publishedDate = new Date(snippet.publishedAt).toLocaleDateString(
-      "en-GB",
-      {
-        day: "numeric",
-        month: "short",
-        year: "numeric",
-      }
-    );
+    const timestamps = DateTime.fromISO(snippet.publishedAt).toRelative();
     const title = snippet.title;
     const description = snippet.description;
     const channelTitle = snippet.channelTitle;
@@ -62,7 +56,7 @@ const VideoPlayer = () => {
     setVideoInfo({
       title,
       description,
-      publishedDate,
+      timestamps,
       channelTitle,
       channelImage,
       viewCount,
@@ -94,7 +88,7 @@ const VideoPlayer = () => {
             <VideoInfo
               title={videoInfo.snippet}
               description={videoInfo.description}
-              publishedDate={videoInfo.publishedDate}
+              timestamps={videoInfo.timestamps}
               channelTitle={videoInfo.channelTitle}
               channelImage={videoInfo.channelImage}
               viewCount={videoInfo.viewCount}

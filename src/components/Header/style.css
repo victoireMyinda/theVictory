@@ -1,9 +1,11 @@
 .header {
     position: fixed;
-    padding: 20px;
+    padding: 15px;
     justify-content: space-between;
     z-index: 100;
     background-color: #64CCDA;
+    height: 80px !important;
+    margin-left: -10px !important;
 }
 
 .header__logo {
@@ -21,9 +23,15 @@
     width: 50%;
 }
 
+.inputsearch>input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
 .btn-primary {
-    width: 50px !important;
-    cursor: pointer;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: -13px;
 }
 
 .header__right {
@@ -41,6 +49,9 @@
     margin-right: 12px;
 }
 
-.header__center>input {
-    flex: 1;
+.btn-danger {
+    margin-right: 20px;
+    margin-top: 5px;
+    height: 40px;
+    font-size: small;
 }

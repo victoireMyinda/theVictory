@@ -9,12 +9,6 @@
     width: 280px;
 }
 
-.videocard:hover {
-    transform: scale(1.1);
-    border-radius: 10px;
-    background-color: #64CCDA;
-}
-
 .videocard__info {
     display: flex;
     margin-top: 10px;

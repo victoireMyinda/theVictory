@@ -52,8 +52,11 @@ const Header = (props) => {
         </Link>
       </div>
 
-      <div className="input-group d-flex justify-content-center ">
-        <div class="form-outline">
+
+
+      <div className="input-group  justify-content-center ">
+
+        <div class="inputsearch">
           <input
             type="search"
             id="form1"
@@ -63,19 +66,21 @@ const Header = (props) => {
             value={inputSearch}
           />
         </div>
-        <Link to={`/search/${inputSearch}`}>
-
-          <button
-            id="search-button"
-            type="button"
-            class="btn btn-primary"
-            onClick={<SearchPage />}
-          >
-            <i className="fas fa-search header__searchbutton"></i>
-          </button>
-
-        </Link>
+        <div className="btn">
+          <Link to={`/search/${inputSearch}`}>
+            <button
+              id="search-button"
+              type="submit"
+              class="btn btn-primary"
+              onClick={<SearchPage />}
+            >
+              <i className="fas fa-search header__searchbutton"></i>
+            </button>
+          </Link>
+        </div>
       </div>
+
+
 
       <div className="header__right">
         <NotifProfilUser />
