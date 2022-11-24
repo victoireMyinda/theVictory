@@ -86,7 +86,7 @@ const VideoPlayer = () => {
         <div className="videoplayer__videoinfo">
           {!isLoading ? (
             <VideoInfo
-              title={videoInfo.snippet}
+              title={videoInfo.title}
               description={videoInfo.description}
               timestamps={videoInfo.timestamps}
               channelTitle={videoInfo.channelTitle}

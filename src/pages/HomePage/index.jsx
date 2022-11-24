@@ -63,6 +63,11 @@ const HomePage = () => {
     return (
 
         <div className='recommendedvideos'>
+            <div class="alert alert-primary" role="alert">
+                <p className="title-section">Videos Populaires</p>
+            </div>
+
+
             {isLoading ? (
                 <div className="d-flex justify-content-center">
                     <CircularProgress className="spinner text-info " role="status" />
