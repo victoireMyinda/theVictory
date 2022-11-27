@@ -19,7 +19,7 @@ const LikedVideos = () => {
 
     useEffect(() => {
         fetch(
-            `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&myRating=like&maxResults=13&key=A${import.meta.env.VITE_APP_API_CLIENT}`,
+            `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&myRating=like&maxResults=13&key=${import.meta.env.VITE_APP_API_CLIENT}`,
             {
                 method: "GET",
                 headers: new Headers({ Authorization: `Bearer ${user}` }),
@@ -30,7 +30,7 @@ const LikedVideos = () => {
                 setVideoCards(data.items)
                 setIsLoading(false)
                 console.log(data.items);
-                // createVideoCards(data.items);
+                //createVideoCards(data.items);
 
             })
             .catch(() => setIsError(true));
@@ -45,6 +45,9 @@ const LikedVideos = () => {
     }
     return (
         <div className="recommendedvideos">
+            <div class="alert alert-primary" role="alert">
+                <p className="title-section">Mes Videos likées</p>
+            </div>
             {isLoading ? (
                 <div className="d-flex justify-content-center">
                     <CircularProgress className="spinner text-info " role="status" />

@@ -3,14 +3,16 @@ import Avatar from "@material-ui/core/Avatar";
 import "./style.css";
 import VideoPlayer from "../VideoPLayer";
 import numeral from "numeral";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const VideoCard = ({ image, channelImage, title, channel, views, timestamp, description }) => {
+
+  const { channelId } = useParams()
   return (
     <div className="videocard" onClick={<VideoPlayer />}>
       <img className="videocard__image" src={image} alt="" />
       <div className="videocard__info">
-        <Link to='ListVideosChannel'>
+        <Link to={`/descriptionChaine/${channelId}`}>
           <Avatar
             className="videocard__avatar"
             alt={channel}

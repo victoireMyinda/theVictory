@@ -41,7 +41,6 @@ const Channels = () => {
       const videoId = video.id;
       const snippet = video.snippet;
       const channelId = snippet.resourceId.channelId;
-      const channelid = window.localStorage.setItem('channel', channelId)
       const response = await axios.get(
         `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&maxResults=9&key=${import.meta.env.VITE_APP_API_CLIENT}`
       );
@@ -50,6 +49,8 @@ const Channels = () => {
       const image = snippet.thumbnails.medium.url;
       const timestamp = DateTime.fromISO(snippet.publishedAt).toRelative();
       const channel = snippet.channelTitle;
+
+
 
       newVideoCards.push({
         channelId,
@@ -74,6 +75,9 @@ const Channels = () => {
   }
   return (
     <div className="recommendedvideos container-fluid">
+      <div class="alert alert-primary" role="alert">
+        <p className="title-section">Mes abonnements</p>
+      </div>
       {isLoading ? (
         <div className="d-flex justify-content-center">
           <CircularProgress className="spinner text-info " role="status" />

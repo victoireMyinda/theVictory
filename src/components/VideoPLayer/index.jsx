@@ -25,7 +25,6 @@ const VideoPlayer = () => {
         `https://www.googleapis.com/youtube/v3/videos?part=snippet%2C%20statistics&id=${videoId}&key=${import.meta.env.VITE_APP_API_CLIENT}`
       )
       .then((response) => {
-        console.log(response.data);
         createVideoInfo(response.data["items"][0]);
         setIsError(false);
       })
@@ -42,7 +41,7 @@ const VideoPlayer = () => {
     const response = await axios.get(
       `https://www.googleapis.com/youtube/v3/channels?part=snippet%2C%20statistics&id=${channelId}&key=${import.meta.env.VITE_APP_API_CLIENT}`
     );
-
+    console.log(response)
     const channelImage = response.data.items[0].snippet.thumbnails.medium.url;
     const subs = response.data.items[0].statistics.subscriberCount;
     const timestamps = DateTime.fromISO(snippet.publishedAt).toRelative();

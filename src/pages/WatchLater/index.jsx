@@ -64,6 +64,9 @@ const WatchLater = () => {
     return (
 
         <div className='recommendedvideos'>
+            <div class="alert alert-primary" role="alert">
+                <p className="title-section">Mes Videos à Regarder Plus tard</p>
+            </div>
             {isLoading ? (
                 <div className="d-flex justify-content-center">
                     <CircularProgress className="spinner text-info " role="status" />

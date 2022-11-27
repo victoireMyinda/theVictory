@@ -12,6 +12,7 @@ import HomePage from "./pages/HomePage"
 import LikedVideos from "./pages/LikedVideos";
 import ModifProfilUser from "./components/ModifProfilUser";
 import WatchLater from "./pages/WatchLater"
+import DescriptionCaine from "./components/DescriptionChaine";
 
 
 import "./App.css"
@@ -36,6 +37,25 @@ const App = () => {
             </div>
           }
         />
+        <Route
+          path="/descriptionChaine/:channelId"
+          element={
+            <div className="container-fluid">
+              <Header />
+              <div className="row position-top">
+                <div className="col-2">
+                  <SideBar />
+                </div>
+                <div className="col-10">
+                  <DescriptionCaine />
+                </div>
+              </div>
+            </div>
+          }
+        />
+
+
+
 
         <Route
           exact

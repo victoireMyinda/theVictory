@@ -7,8 +7,6 @@ import Alert from "@material-ui/lab/Alert";
 import "./style.css";
 
 const ListVideosChannel = () => {
-  const clientId =
-    "921844704692-a5d8lqqg00nf3lqtls6mo1frkfi5jm02.apps.googleusercontent.com";
 
   const [videoCards, setVideoCards] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +20,7 @@ const ListVideosChannel = () => {
         setVideoCards(data.items)
         setIsLoading(false)
         console.log(data.items);
-        // createVideoCards(data.items);
+
 
       })
       .catch(() => setIsError(true));
@@ -49,6 +47,7 @@ const ListVideosChannel = () => {
             <Link key={index} to={`/video/${video.id.videoId}`}>
               <VideoCard
                 title={video.snippet.title}
+                channel={video.snippet.channelTitle}
                 image={video.snippet.thumbnails.medium.url}
               />
             </Link>

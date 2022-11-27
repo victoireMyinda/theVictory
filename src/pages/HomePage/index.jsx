@@ -43,6 +43,7 @@ const HomePage = () => {
             const timestamp = DateTime.fromISO(snippet.publishedAt).toRelative();
             const channel = snippet.channelTitle;
 
+
             newVideoCards.push({
                 videoId,
                 image,
