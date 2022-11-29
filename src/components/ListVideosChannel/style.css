@@ -18,3 +18,18 @@
 .recommendedvideos__videos>* {
     margin-left: 4%;
 }
+
+.alert-primary {
+    margin-top: -30px;
+    height: 60px;
+}
+
+.alert-primary>p {
+    text-align: center;
+    margin-top: -5px;
+    font-size: x-large;
+    font-family: 'Times New Roman', Times, serif;
+    background: -webkit-linear-gradient(#000000, blue, black, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

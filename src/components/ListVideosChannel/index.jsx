@@ -20,8 +20,6 @@ const ListVideosChannel = () => {
         setVideoCards(data.items)
         setIsLoading(false)
         console.log(data.items);
-
-
       })
       .catch(() => setIsError(true));
   }, []);
@@ -35,6 +33,11 @@ const ListVideosChannel = () => {
   }
   return (
     <div className="recommendedvideos">
+      <div class="alert alert-primary" role="alert">
+
+        <p className="title-section">Nom de la chaine</p>
+
+      </div>
       {isLoading ? (
         <div className="d-flex justify-content-center">
           <CircularProgress className="spinner text-info " role="status" />
@@ -42,7 +45,6 @@ const ListVideosChannel = () => {
       ) : null}
       <div className="recommendedvideos__videos">
         {videoCards.map((video, index) => {
-
           return (
             <Link key={index} to={`/video/${video.id.videoId}`}>
               <VideoCard

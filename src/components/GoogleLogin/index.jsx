@@ -52,13 +52,13 @@ const SignIn = () => {
 
   return (
     <div className="all">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-lg-10 col-xl-9 mx-auto h">
-            <div class="card flex-row border-0 shadow rounded-3 overflow-hidden h-row">
-              <div class="card-img-left d-none d-md-flex"></div>
-              <div class="card-body p-4 p-sm-5">
-                <h5 class="card-title text-center mb-5 fw-light fs-5">
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-lg-10 col-xl-9 mx-auto h">
+            <div className="card flex-row border-0 shadow rounded-3 overflow-hidden h-row">
+              <div className="card-img-left d-none d-md-flex"></div>
+              <div className="card-body p-4 p-sm-5">
+                <h5 className="card-title text-center mb-5 fw-light fs-5">
                   The Victory
                 </h5>
                 <form>
