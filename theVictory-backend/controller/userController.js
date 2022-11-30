@@ -1,6 +1,8 @@
 const asyncHandler = require('express-async-handler')
 const userModel = require('../model/userModel.js')
 
+//const clientId = window.localStorage.getItem("clientId")
+//console.log(clientId)
 
 
 //Poster les data user obtenu depuis l'API google

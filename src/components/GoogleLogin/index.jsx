@@ -6,7 +6,8 @@ import "./style.css";
 
 const SignIn = () => {
   const clientId = import.meta.env.VITE_APP_ID_CLIENT;
-  console.log("clientId: ", clientId)
+  //console.log("clientId: ", clientId)
+  const client = window.localStorage.setItem("clientId", clientId)
   const Navigate = useNavigate();
   const [user, setUser] = useState(null);
 
