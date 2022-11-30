@@ -1,12 +1,11 @@
 const express = require('express')
 
-const { createUser, getUser, updateUser, editUser } = require('../controller/userController')
+const { authUser, registerUser, getUser, updateUserProfile } = require('../controller/userController')
 
 const router = express.Router()
 
-router.post('/create', createUser)
-router.get('/get', getUser)
-router.get('/edit/:id', editUser)
-router.put('/user/:id', updateUser)
+router.post('/api/user', registerUser)
+router.get('/api/user', getUser)
+router.put('/api/user/:id', updateUserProfile)
 
 module.exports = router

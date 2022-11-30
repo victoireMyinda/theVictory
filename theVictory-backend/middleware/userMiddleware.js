@@ -14,7 +14,7 @@ const protect = asynHandler(async(request, response, next) => {
             const decoded = jwt.verify(token, process.env.JWT_TOKEN)
 
             //recuperer user depuis son token
-            request.user = await userModel.findById(decoded.UserID)
+            request.user = await userModel.findById(decoded.id).select("-pseudo");
 
             next()
 

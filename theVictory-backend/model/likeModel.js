@@ -8,7 +8,8 @@ const likeSchema = mongoose.Schema({
     },
     commentaire: {
         id: { type: String },
-        idParent: { type: String }
+        idParent: { type: String },
+        ref: 'commentairemodel'
     },
     estActif: true,
     dateCreation: { type: String },

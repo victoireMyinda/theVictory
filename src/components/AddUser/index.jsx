@@ -5,14 +5,13 @@ const AddUser = () => {
 
     const [data, setData] = useState()
     const getData = async () => {
-        const response = await axios.get(`http://localhost:9000/getUser`);
+        const response = await axios.get(`http://localhost:9000/api/user`);
 
         setData(response.data);
     }
 
     useEffect(() => {
         getData()
-
     }, [])
     return (
         <div>

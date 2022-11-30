@@ -18,6 +18,7 @@ const notificationSchema = mongoose.Schema({
         estActif: true,
         dateCreation: { type: String },
         dateDerniereModification: { type: String },
+        ref: 'commentairemodel'
     },
 })
 

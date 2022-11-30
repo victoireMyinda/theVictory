@@ -14,7 +14,7 @@ connectDataBase()
 app.use(cors())
 
 //Routes
-app.use('/user', router)
+app.use('/', router)
 
 app.listen(
     process.env.VITE_APP_PORT, () => {
