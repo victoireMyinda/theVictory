@@ -1,22 +1,28 @@
 const express = require('express')
-const dotenv = require('dotenv').config({ path: "./config/.env" })
 const cors = require('cors')
+require('dotenv').config({ path: "./config/.env" })
+require('./config/database')
+const bodyParser = require('body-parser')
+const userRoutes = require('./routes/userRoutes.routes');
+const postRouter = require('./routes/post.routes')
+
+const fileUpload = require('express-fileupload');
 
 const app = express()
 
-const connectDataBase = require('./database/connexion')
-
-const router = require('./route/userRoute')
-
-connectDataBase()
-
-//Cors
 app.use(cors())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
 
-//Routes
-app.use('/', router)
-
-app.listen(
-    process.env.VITE_APP_PORT, () => {
-        console.log(`server listening in http://localhost:${process.env.VITE_APP_PORT}`)
+app.use(
+    fileUpload({
+        createParentPath: true
     })
+)
+
+app.use('/api/users', userRoutes)
+app.use('/api/posts', postRouter)
+
+app.listen(`${process.env.PORT}`, () => {
+    console.log(`server listen in port ${process.env.PORT}`)
+})

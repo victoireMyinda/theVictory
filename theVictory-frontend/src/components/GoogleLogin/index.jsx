@@ -3,6 +3,7 @@ import { gapi, loadAuth2 } from "gapi-script";
 import { useNavigate } from "react-router-dom";
 
 import "./style.css";
+import axios from "axios";
 
 const SignIn = () => {
   const clientId = import.meta.env.VITE_APP_ID_CLIENT;
@@ -45,6 +46,18 @@ const SignIn = () => {
 
   const updateUser = (user) => {
     console.log(user.xc.access_token);
+    console.log(user)
+    if (user) {
+      axios.post('http://localhost:9000/api/users', {
+        name: user && user.wt && user.wt.Ad,
+        avatar: user && user.wt && user.wt.hK,
+      }).then(res => {
+        console.log(res)
+      })
+        .catch(err => {
+          console.log(err);
+        })
+    }
     localStorage.setItem("token", user.xc.access_token);
     const profileImg = user.getBasicProfile().getImageUrl();
     localStorage.setItem("profilUser", profileImg);
