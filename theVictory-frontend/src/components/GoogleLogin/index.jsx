@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { gapi, loadAuth2 } from "gapi-script";
 import { useNavigate } from "react-router-dom";
+import { UserProfilContext } from "../../ProfilContext"
 
 import "./style.css";
 import axios from "axios";
@@ -11,6 +12,8 @@ const SignIn = () => {
   const client = window.localStorage.setItem("clientId", clientId)
   const Navigate = useNavigate();
   const [user, setUser] = useState(null);
+
+  const { setUserConnected, userConnected } = useContext(UserProfilContext)
 
   useEffect((props) => {
     const setAuth2 = async () => {
@@ -46,7 +49,7 @@ const SignIn = () => {
 
   const updateUser = (user) => {
     console.log(user.xc.access_token);
-    console.log(user)
+    setUserConnected(user)
     if (user) {
       axios.post('http://localhost:9000/api/users', {
         name: user && user.wt && user.wt.Ad,

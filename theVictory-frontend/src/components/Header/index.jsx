@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useNavigate, NavLink, useParams } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import Avatar from "@material-ui/core/Avatar";
@@ -8,13 +8,17 @@ import NotifProfilUser from "../NotifProfilUser";
 import { gapi, loadAuth2 } from "gapi-script";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
-
-
+import { UserProfilContext } from "../../ProfilContext";
 
 const Header = (props) => {
+
   const [inputSearch, setInputSearch] = useState("");
   const navigate = useNavigate();
-  const params = useParams()
+  const params = useParams();
+
+  const { userConnected, setUserConnected } = useContext(UserProfilContext);
+
+  console.log(userConnected, " jjjj ")
 
   const clientId =
     "921844704692-a5d8lqqg00nf3lqtls6mo1frkfi5jm02.apps.googleusercontent.com";
@@ -22,6 +26,7 @@ const Header = (props) => {
 
   const signOut = () => {
     const setAuth2 = async () => {
+      setUserConnected(null)
       const auth2 = await loadAuth2(
         gapi,
         clientId,
@@ -80,7 +85,7 @@ const Header = (props) => {
         </div>
       </div>
 
-
+      Salut {userConnected && userConnected.wt && userConnected.wt.Ad && userConnected.wt.Ad}
 
       <div className="header__right">
         <NotifProfilUser />

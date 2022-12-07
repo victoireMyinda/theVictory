@@ -43,6 +43,7 @@ const getAllUsers = async(req, res) => {
 }
 
 const getOneUser = async(req, res) => {
+
     try {
         if (!ObjectID.isValid(req.params.id)) {
             return res.status(400).json('Aucun user trouvé avec l\'ID : ' + req.params.id)
@@ -54,6 +55,22 @@ const getOneUser = async(req, res) => {
                     return res.status(400).json('User inconnu')
                 })
         }
+    } catch (error) {
+        return res.status(500).json('Erreur interne du serveur')
+    }
+}
+
+const getOneUserByName = async(req, res) => {
+    try {
+        modelUser.findOne({ name: new RegExp('^' + req.params.id + '$', "i") }, (err, doc) => {
+            if (!err) {
+                if (doc) {
+                    return res.status(200).json(doc)
+                } else {
+                    return res.status(500).json('Erreur interne du serveur')
+                }
+            }
+        })
     } catch (error) {
         return res.status(500).json('Erreur interne du serveur')
     }
@@ -94,5 +111,6 @@ module.exports = {
     RegisterUser,
     getAllUsers,
     getOneUser,
-    updateUser
+    updateUser,
+    getOneUserByName
 }

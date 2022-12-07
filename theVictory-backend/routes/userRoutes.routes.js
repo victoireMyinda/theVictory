@@ -3,6 +3,7 @@ const userController = require('../controllers/userController')
 
 router.post('/', userController.RegisterUser)
 router.get('/:id', userController.getOneUser)
+router.patch('/:id', userController.getOneUserByName)
 router.get('/', userController.getAllUsers)
 router.put('/:id', userController.updateUser)
 

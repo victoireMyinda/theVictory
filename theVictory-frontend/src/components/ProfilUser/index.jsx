@@ -6,7 +6,7 @@ import ModifProfilUser from '../ModifProfilUser';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import { GitHub } from '@material-ui/icons';
 import { LinkedIn } from '@material-ui/icons';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import './style.css'
 
@@ -94,11 +94,11 @@ const ProfilUser = () => {
                 </MenuItem>
 
                 <Divider />
-                <Link to='/modifyProfilUser'>
+                <NavLink to={{ pathname: '/modifyProfilUser' }} state={{ val: "modif" }}>
                     <MenuItem>
                         <Avatar /> Modifier compte
                     </MenuItem>
-                </Link>
+                </NavLink>
             </Menu>
         </>
     )

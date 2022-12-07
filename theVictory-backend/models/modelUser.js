@@ -4,9 +4,7 @@ const schemaUser = mongoose.Schema({
     name: { type: String },
     avatar: { type: String },
     links: { type: [String] },
-    likes: {
-        type: [String]
-    },
+    likes: [String],
 
 }, {
     timestamps: true

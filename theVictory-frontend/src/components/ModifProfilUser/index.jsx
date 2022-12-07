@@ -1,9 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import { useLocation } from "react-router-dom";
+import { UserProfilContext } from "../../ProfilContext"
 
 import "./style.css"
+import axios from "axios";
 
 const ModifProfilUser = () => {
+
+    const [name, setName] = useState('');
+    const [dataUser, setDataUser] = useState(null);
+
+    const [nameUserDB, setNameUserDB] = useState('');
+
+    const { userConnected } = useContext(UserProfilContext);
+
+    const location = useLocation();
+
+    const { state } = location;
+
+    console.log(dataUser)
+
+    useEffect(() => {
+        if (dataUser) {
+            setNameUserDB(dataUser && dataUser.name)
+        }
+    }, [dataUser])
+
+    useEffect(() => {
+        if (userConnected) {
+            setName(userConnected &&
+                userConnected.wt && userConnected.wt.Ad && userConnected.wt.Ad)
+        }
+    }, [state.val])
+
+    console.log(userConnected, " :  STATE")
+
+    useEffect(() => {
+        const getUserByName = () => {
+            axios.patch("http://localhost:9000/api/users/" + name)
+                .then(res => {
+                    setDataUser(res.data)
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        }
+        getUserByName();
+    }, [name])
+
     return (
         <div className='container'>
             <div className="row modify-content">
@@ -17,7 +62,7 @@ const ModifProfilUser = () => {
                                 <div className="row">
                                     <div className="form-outline col-6">
                                         <label className="form-label" for="form1Example1">Nom</label>
-                                        <input type="name" id="name" className="form-control" />
+                                        <input type="name" value={nameUserDB} id="name" className="form-control" />
                                     </div>
 
                                     <div className="form-outline col-6">
