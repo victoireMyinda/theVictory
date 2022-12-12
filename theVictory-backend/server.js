@@ -1,12 +1,11 @@
 const express = require('express')
 const cors = require('cors')
-require('dotenv').config({ path: "./config/.env" })
-require('./config/database')
 const bodyParser = require('body-parser')
 const userRoutes = require('./routes/userRoutes.routes');
 const postRouter = require('./routes/post.routes')
-
 const fileUpload = require('express-fileupload');
+require('dotenv').config({ path: "./config/.env" })
+require('./config/database')
 
 const app = express()
 

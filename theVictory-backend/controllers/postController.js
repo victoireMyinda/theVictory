@@ -2,26 +2,64 @@ const postModel = require('../models/modelPost')
 const userModel = require('../models/modelUser')
 const ObjectID = require('mongoose').Types.ObjectId;
 
-const createComment = async(req, res) => {
+const readPost = (req, res) => {
+    postModel.find((err, docs) => {
+        if (!err) res.send(docs);
+        else console.log('Erreur to get data : ', +err)
+    }).sort({ createdAt: -1 });
+};
+
+const getPostByVideoId = async(req, res) => {
     try {
-        return postModel.create({
-                videoID: req.body.videoID,
-                commentaires: {
-                    commentaireID: req.body.commentaireID,
-                    userName: req.body.userName,
-                    description: req.body.description,
-                    timestamp: new Date().getTime()
+        postModel.findOne({ videoID: new RegExp('^' + req.body.videoID + '$', "i") }, (err, doc) => {
+            if (!err) {
+                if (doc) {
+                    return res.status(200).json(doc._id)
+                } else {
+                    postModel.create({
+                            videoID: req.body.videoID,
+                        })
+                        .then(resp => {
+                            res.status(201).json(resp._id)
+                        })
+                        .catch(err => {
+                            return res.status(500).json('Erreur interne du serveur')
+                        })
                 }
-            }, )
-            .then((docs) => {
-                res.status(200).send({
-                    message: 'Commentaire ajouté avec succès',
-                    data: docs
-                })
-            })
-            .catch((err) => { return res.status(400).send({ message: err }) })
+            }
+        })
     } catch (err) {
         return res.status(400).send({ message: err })
+    }
+}
+
+const addComment = async(req, res) => {
+    if (!ObjectID.isValid(req.params.id)) {
+        return res.status(400).send('ID inconnu : ' + req.params.id)
+    } else {
+        try {
+            return postModel.findByIdAndUpdate(
+                    req.params.id, {
+                        $push: {
+                            commentaires: {
+                                commentaireID: req.body.commentaireID,
+                                userName: req.body.userName,
+                                description: req.body.description,
+                                timestamp: new Date()
+                            }
+                        }
+                    }, { new: true }
+                )
+                .then((docs) => {
+                    res.status(201).send({
+                        message: 'Commentaire ajouté avec succès',
+                        data: docs
+                    })
+                })
+                .catch((err) => { return res.status(400).send({ message: err }) })
+        } catch (err) {
+            return res.status(400).send({ message: err })
+        }
     }
 }
 
@@ -58,52 +96,24 @@ const unlikePost = async(req, res) => {
 }
 
 
-const commentSousPost = (req, res) => {
-    if (!ObjectID.isValid(req.params.id)) {
-        return res.status(400).send('ID invalid : ' + req.params.id)
-    } else {
-        try {
-            postModel.findById(req.params.id)
-                .then(post => {
-                    if (post.commentaires._id === req.body.commenterId) {
-                        return postModel.findByIdAndUpdate(
-                                req.params.id, {
-                                    $push: {
-                                        commentaires: {
-                                            sousCommentaires: {
-                                                commentaireID: req.body.commentaireID,
-                                                userName: req.body.userName,
-                                                description: req.body.description,
-                                                timestamp: new Date().getTime()
-                                            }
-                                        }
-                                    }
-                                }, { new: true }
-                            )
-                            .then((docs) => {
-                                res.status(200).send({
-                                    message: 'Commentaire ajouté avec succès',
-                                    data: docs
-                                })
-                            })
-                            .catch((err) => { return res.status(400).send({ message: err }) })
-                    } else {
+const commentSousPost = async(req, res) => {
+    try {
+        const posts = await postModel.find().sort({ updatedAt: -1 })
 
-                    }
-                }).catch(err => {
-                    return res.status(400).send({ message: err })
-                })
-        } catch (error) {
-
-        }
+        posts.map(val => {
+            return res.json(val.commentaires)
+        })
+    } catch (error) {
 
     }
 }
 
 
 module.exports = {
-    createComment,
+    getPostByVideoId,
     likePost,
     unlikePost,
-    commentSousPost
+    commentSousPost,
+    addComment,
+    readPost
 }

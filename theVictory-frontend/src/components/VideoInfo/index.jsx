@@ -2,8 +2,8 @@ import React from "react";
 import "./style.css";
 import { Avatar } from "@material-ui/core";
 import numeral from "numeral";
-import { DateTime } from 'luxon';
 import { ThumbUp, ThumbDown } from "@material-ui/icons";
+
 
 const VideoInfo = ({
   title,
@@ -16,6 +16,7 @@ const VideoInfo = ({
   dislikeCount,
   subs,
 }) => {
+
   return (
     <div className="videoinfo">
       <div className="videoinfo__headline">

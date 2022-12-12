@@ -72,6 +72,58 @@ const VideoPlayer = () => {
       </Alert>
     );
   }
+
+  const [id, setId] = useState("");
+  const [description, setDescription] = useState('');
+  const [posts, setPosts] = useState([]);
+  const [commentIsAdd, setCommentIsAdd] = useState(null);
+
+  const onChangeDescription = (e) => {
+    setDescription(e.target.value)
+  }
+
+  const addComment = (e) => {
+    setCommentIsAdd(1)
+    e.preventDefault()
+    axios.post('http://localhost:9000/api/posts', { videoID: videoId })
+      .then(resp => {
+
+        const valueId = resp.data
+        axios.patch('http://localhost:9000/api/posts/comment-post/' + `${resp.data}`, {
+          description: description,
+          commentaireID: ""
+        })
+          .then(resp => {
+            setDescription("")
+            getAllPosts()
+            console.log(resp)
+            //document.getElementById('comment').value = ""
+          })
+          .catch(err => {
+            console.log(err)
+            setCommentIsAdd(false)
+          })
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+  const getAllPosts = () => {
+    axios.get("http://localhost:9000/api/posts")
+      .then(resp => {
+        setPosts(resp.data)
+        console.log(resp.data);
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+  useEffect(() => {
+    getAllPosts();
+  }, [])
+
   return (
     <div className="videoplayer">
       <div className="videoplayer__videodetails">
@@ -102,50 +154,73 @@ const VideoPlayer = () => {
           <div className="titleComment">
             <h4 className="text-secondary">commentaires(500)</h4>
           </div>
-          <hr />
+        </div>
+        <hr />
 
-          <div>
-            <form>
-              <div class="form-group">
-                <label for="comment">Ajouter un commentaire</label>
-                <textarea class="form-control" id="comment" rows="2"></textarea>
-              </div>
-            </form>
+
+        <div>
+          <form>
+            <div class="form-group">
+              <label for="comment">Ajouter un commentaire</label>
+              <textarea class="form-control" id="comment" rows="2" value={description}
+                onChange={onChangeDescription}></textarea>
+            </div>
+
             <div className="btns d-flex">
               <button className="btn btn-danger" >Annuler</button>
-              <button className="btn btn-info text-white" type="submit">Envoyer</button>
+              <button className="btn btn-info text-white" onClick={addComment}>Envoyer</button>
             </div>
+          </form>
+        </div>
 
-            <hr />
+        <hr />
 
-            <div className="userComment ">
-              <div className="AvatarAndUserName d-flex">
-                <div className="img">  <Avatar /> </div>
-                <div className="userName">
-                  <span>Victoire myinda.</span>
-                  <span>Il y'a 4 heures</span>
-                </div>
-              </div>
 
-              <div className="responseComment">
-                <p>
-                  Quand ma fille était étudiante en pharmacie, elle a vu une pharmacie et elle voulait cette pharmacie ! Je lui
-                  ai conseillé de se visualiser dans la pharmacie, de ressentir  ce qu'elle ferait, de le vivre comme si la pharmacie
-                  lui appartenait, les modifications  qu'elle pourrait faire, etc.  Elle m'a écoutée. À la fin de ses études elle a fait son stage..
-                </p>
+        <div>
+          {
+            posts && posts.map(value => {
+              if (value.videoID === videoId) {
+                return (
 
-                <div className="likeDislikeResponse d-flex">
-                  <div className="like"><ThumbUp /> 80</div>
-                  <div className="dislike"><ThumbDown /> 0</div>
-                  <div className="response"> <button className="btn btn-info text-white">Repondre</button></div>
+                  <>
+                    <div className="">
 
-                  <div className="subComment"></div>
-                </div>
-              </div>
-            </div>
-          </div>
+                      {value.commentaires && value.commentaires.map(val => {
+                        return (
+                          <div className="userComment mb-3">
+                            <div className="AvatarAndUserName d-flex">
+                              <div className="img">  <Avatar /> </div>
+                              <div className="userName">
+                                <span>Victoire myinda.</span>
+                                <span>
+                                  {
+                                    DateTime.fromISO(value.createdAt).toRelative()
+                                  }
+                                </span>
+                              </div>
+                            </div>
+                            {val.description}
+                            <div className="likeDislikeResponse d-flex">
+                              <div className="like"><ThumbUp /> 80</div>
+                              <div className="dislike"><ThumbDown /> 0</div>
+                              <div className="response"> <button className="btn btn-info text-white">Repondre</button></div>
+
+                              <div className="subComment"></div>
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+
+                  </>
+                )
+              }
+            })
+          }
 
         </div>
+
+
       </div>
     </div>
   );

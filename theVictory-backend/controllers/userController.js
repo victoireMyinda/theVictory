@@ -35,7 +35,7 @@ const getAllUsers = async(req, res) => {
         if (users) {
             res.status(200).json({ message: "La liste de users a été récupérée avec succès", users, taille });
         } else {
-            res.status(404).json({ message: "Users non trouvé." });
+            res.status(404).json({ message: "Users non trouvés." });
         }
     } catch (error) {
         return res.status(500).json('Erreur interne du serveur')
